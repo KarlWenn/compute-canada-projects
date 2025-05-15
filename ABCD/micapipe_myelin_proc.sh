@@ -64,7 +64,7 @@ fi
 mkdir -p "$MASK_DIR"
 mkdir -p "$BRAINS_DIR"
 
-# Using 
+# Using deepbet to brain extract T1w which will later be used when calling 03_MPC.sh
 deepbet-cli -i "$T1W_IMAGE" -o "$BRAINS_DIR"/"$t1w_image_name" -m "$MASK_DIR"/"$t1w_image_name" -t 0.4
 # Just need brain
 t1w_brain=$BRAINS_DIR/$t1w_image_name
@@ -78,8 +78,6 @@ ${MICAPIPE_FUNCTIONS_PATH}/02_post-structural.sh $bids $SUBJECT_ID $output_dir $
 # Define path to myelin map and path to image to register with
 myelin_map=/lustre04/scratch/karlwenn/ABCD_data_output/sub-${SUBJECT_ID}/$SESSION_ID/T1wDividedByT2w_native.nii.gz
 
-# Want to grab the subject T1w to use for registration
-
 # Run Microstructural Profile Covariance (MPC) processing
 ${MICAPIPE_FUNCTIONS_PATH}/03_MPC.sh $bids $SUBJECT_ID $output_dir $SESSION_ID FALSE $THREADS $tmp_dir $myelin_map $t1w_brain myelin
 
@@ -92,6 +90,5 @@ fi
 if mksquashfs $output_dir/fastsurfer/sub-${SUBJECT_ID}_${SESSION_ID} $output_dir/fastsurfer/sub-${SUBJECT_ID}_${SESSION_ID}.sqsh; then
     rm -r $output_dir/fastsurfer/sub-${SUBJECT_ID}_${SESSION_ID}
 fi
-
 
 rm -r "$TMP_DATA_DIR"/sub-"$SUBJECT_ID"/"$SESSION_ID"
