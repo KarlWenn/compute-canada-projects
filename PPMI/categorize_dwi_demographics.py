@@ -15,7 +15,7 @@ def main():
     for index, row in dwi_df.iterrows():
         directionality = row['Directionality']
         dwis = row['DWIs']
-        number_dwis = len(eval(dwis))
+        number_dwis = len(eval(dwis)) # Need to use eval since DWI "lists" (with len > 1) are actually strings which look like lists. eval() transforms them to lists.
         num_bvals = int(row['# Unique Bvals'])
         identifier = row['JSON Polarity Identifier']
         number_dwis_col.append(number_dwis)
