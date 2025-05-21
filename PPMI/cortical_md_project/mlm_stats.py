@@ -19,73 +19,73 @@ def main():
     age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict, moca_dict = make_demographic_dicts()
 
     # Run MLM on cortical MD measures
-    #cortical_md_df = pd.read_csv(cortical_md_csv)
+    cortical_md_df = pd.read_csv(cortical_md_csv)
     # Results will be stored in a separate Excel file for each brain health measure thing we're looking at
-    #cortical_md_wb_path = "../data/BL_newest_cortical_md_results.xlsx"
-    #cortical_md_updrs_wb_path = "../data/BL_new_UPDRS_cortical_md_results.xlsx"
-    #cortical_md_moca_wb_path= "../data/BL_new_MoCA_cortical_md_results.xlsx"
-    #cortical_md_dict = make_dictionary(cortical_md_df)
-    #cortical_md_cols = list(cortical_md_df.columns)[2:] # Need to get column names to iterate through them, don't want subject or session column which are always first two
-    #run_updrs_mlm_on_dict(cortical_md_updrs_wb_path, cortical_md_dict, cortical_md_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
-    #run_moca_mlm_on_dict(cortical_md_moca_wb_path, cortical_md_dict, cortical_md_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
-    #run_mlm_on_dict(cortical_md_wb_path, cortical_md_dict, cortical_md_cols, age_dict, sex_dict, educ_dict, diagnosis_dict) # Using column names to iterate, see function
+    cortical_md_wb_path = "../data/BL_newest_cortical_md_results.xlsx"
+    cortical_md_updrs_wb_path = "../data/BL_new_UPDRS_cortical_md_results.xlsx"
+    cortical_md_moca_wb_path= "../data/BL_new_MoCA_cortical_md_results.xlsx"
+    cortical_md_dict = make_dictionary(cortical_md_df)
+    cortical_md_cols = list(cortical_md_df.columns)[2:] # Need to get column names to iterate through them, don't want subject or session column which are always first two
+    run_updrs_mlm_on_dict(cortical_md_updrs_wb_path, cortical_md_dict, cortical_md_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
+    run_moca_mlm_on_dict(cortical_md_moca_wb_path, cortical_md_dict, cortical_md_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
+    run_mlm_on_dict(cortical_md_wb_path, cortical_md_dict, cortical_md_cols, age_dict, sex_dict, educ_dict, diagnosis_dict) # Using column names to iterate, see function
 
     # From hereon, it's the same strategy, just repeated
     # Run MLM on CT measures
-    #rh_thickness_df = pd.read_csv(rh_thickness_csv)
-    #lh_thickness_df = pd.read_csv(lh_thickness_csv)
+    rh_thickness_df = pd.read_csv(rh_thickness_csv)
+    lh_thickness_df = pd.read_csv(lh_thickness_csv)
 
-    #rh_thickness_dict = make_dictionary(rh_thickness_df)
-    #lh_thickness_dict = make_dictionary(lh_thickness_df)
+    rh_thickness_dict = make_dictionary(rh_thickness_df)
+    lh_thickness_dict = make_dictionary(lh_thickness_df)
 
-    #rh_thickness_cols = list(rh_thickness_df.columns)[2:]
-    #lh_thickness_cols = list(lh_thickness_df.columns)[2:]
+    rh_thickness_cols = list(rh_thickness_df.columns)[2:]
+    lh_thickness_cols = list(lh_thickness_df.columns)[2:]
 
-    #rh_thickness_wb_path = "../data/BL_newest_rh_thickness_results.xlsx"
-    #lh_thickness_wb_path = "../data/BL_newest_lh_thickness_results.xlsx"
+    rh_thickness_wb_path = "../data/BL_newest_rh_thickness_results.xlsx"
+    lh_thickness_wb_path = "../data/BL_newest_lh_thickness_results.xlsx"
 
-    #rh_thickness_updrs_wb_path = "../data/BL_new_UPDRS_rh_thickness_results.xlsx"
-    #lh_thickness_updrs_wb_path = "../data/BL_new_UPDRS_lh_thickness_results.xlsx"
+    rh_thickness_updrs_wb_path = "../data/BL_new_UPDRS_rh_thickness_results.xlsx"
+    lh_thickness_updrs_wb_path = "../data/BL_new_UPDRS_lh_thickness_results.xlsx"
 
-    #rh_thickness_moca_wb_path = "../data/BL_new_MoCA_rh_thickness_results.xlsx"
-    #lh_thickness_moca_wb_path = "../data/BL_new_MoCA_lh_thickness_results.xlsx"
+    rh_thickness_moca_wb_path = "../data/BL_new_MoCA_rh_thickness_results.xlsx"
+    lh_thickness_moca_wb_path = "../data/BL_new_MoCA_lh_thickness_results.xlsx"
 
-    #run_updrs_mlm_on_dict(rh_thickness_updrs_wb_path, rh_thickness_dict, rh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
-    #run_updrs_mlm_on_dict(lh_thickness_updrs_wb_path, lh_thickness_dict, lh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
+    run_updrs_mlm_on_dict(rh_thickness_updrs_wb_path, rh_thickness_dict, rh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
+    run_updrs_mlm_on_dict(lh_thickness_updrs_wb_path, lh_thickness_dict, lh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
 
-    #run_moca_mlm_on_dict(rh_thickness_moca_wb_path, rh_thickness_dict, rh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
-    #run_moca_mlm_on_dict(lh_thickness_moca_wb_path, lh_thickness_dict, lh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
+    run_moca_mlm_on_dict(rh_thickness_moca_wb_path, rh_thickness_dict, rh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
+    run_moca_mlm_on_dict(lh_thickness_moca_wb_path, lh_thickness_dict, lh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
 
-    #run_mlm_on_dict(rh_thickness_wb_path, rh_thickness_dict, rh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
-    #run_mlm_on_dict(lh_thickness_wb_path, lh_thickness_dict, lh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
+    run_mlm_on_dict(rh_thickness_wb_path, rh_thickness_dict, rh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
+    run_mlm_on_dict(lh_thickness_wb_path, lh_thickness_dict, lh_thickness_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
 
     # Run MLM on SA measures
-    #rh_sa_df = pd.read_csv(rh_area_csv)
-    #lh_sa_df = pd.read_csv(lh_area_csv)
+    rh_sa_df = pd.read_csv(rh_area_csv)
+    lh_sa_df = pd.read_csv(lh_area_csv)
 
-    #rh_sa_dict = make_dictionary(rh_sa_df)
-    #lh_sa_dict = make_dictionary(lh_sa_df)
+    rh_sa_dict = make_dictionary(rh_sa_df)
+    lh_sa_dict = make_dictionary(lh_sa_df)
 
-    #rh_sa_cols = list(rh_sa_df.columns)[2:]
-    #lh_sa_cols = list(lh_sa_df.columns)[2:]
+    rh_sa_cols = list(rh_sa_df.columns)[2:]
+    lh_sa_cols = list(lh_sa_df.columns)[2:]
 
-    #rh_sa_wb_path = "../data/BL_newest_rh_sa_results.xlsx"
-    #lh_sa_wb_path = "../data/BL_newest_lh_sa_results.xlsx"
+    rh_sa_wb_path = "../data/BL_newest_rh_sa_results.xlsx"
+    lh_sa_wb_path = "../data/BL_newest_lh_sa_results.xlsx"
 
-    #rh_sa_updrs_wb_path = "../data/BL_new_UPDRS_rh_area_results.xlsx"
-    #lh_sa_updrs_wb_path = "../data/BL_new_UPDRS_lh_area_results.xlsx"
+    rh_sa_updrs_wb_path = "../data/BL_new_UPDRS_rh_area_results.xlsx"
+    lh_sa_updrs_wb_path = "../data/BL_new_UPDRS_lh_area_results.xlsx"
 
-    #rh_sa_moca_wb_path = "../data/BL_new_MoCA_rh_area_results.xlsx"
-    #lh_sa_moca_wb_path = "../data/BL_new_MoCA_lh_area_results.xlsx"
+    rh_sa_moca_wb_path = "../data/BL_new_MoCA_rh_area_results.xlsx"
+    lh_sa_moca_wb_path = "../data/BL_new_MoCA_lh_area_results.xlsx"
 
-    #run_updrs_mlm_on_dict(rh_sa_updrs_wb_path, rh_sa_dict, rh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
-    #run_updrs_mlm_on_dict(lh_sa_updrs_wb_path, lh_sa_dict, lh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
+    run_updrs_mlm_on_dict(rh_sa_updrs_wb_path, rh_sa_dict, rh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
+    run_updrs_mlm_on_dict(lh_sa_updrs_wb_path, lh_sa_dict, lh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, updrs_dict)
 
-    #run_moca_mlm_on_dict(rh_sa_moca_wb_path, rh_sa_dict, rh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
-    #run_moca_mlm_on_dict(lh_sa_moca_wb_path, lh_sa_dict, lh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
+    run_moca_mlm_on_dict(rh_sa_moca_wb_path, rh_sa_dict, rh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
+    run_moca_mlm_on_dict(lh_sa_moca_wb_path, lh_sa_dict, lh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict, moca_dict)
 
-    #run_mlm_on_dict(rh_sa_wb_path, rh_sa_dict, rh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
-    #run_mlm_on_dict(lh_sa_wb_path, lh_sa_dict, lh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
+    run_mlm_on_dict(rh_sa_wb_path, rh_sa_dict, rh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
+    run_mlm_on_dict(lh_sa_wb_path, lh_sa_dict, lh_sa_cols, age_dict, sex_dict, educ_dict, diagnosis_dict)
 
     # Run MLM on subcortical measures
     subcortical_df = pd.read_csv(subcortical_csv)
