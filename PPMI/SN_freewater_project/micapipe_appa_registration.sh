@@ -4,7 +4,7 @@
 #SBATCH --time=2:59:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=4G
-#SBATCH --array=1-3
+#SBATCH --array=1-200
 
 module load StdEnv/2023 gcc/12.3
 module load ants/2.5.0
@@ -12,7 +12,7 @@ module load fsl
 
 export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=$SLURM_JOB_CPUS_PER_NODE
 
-SUBJECT_LIST=../data/fonov_registration_subs.txt
+SUBJECT_LIST=../data/appa1_subs.txt
 
 SUBJECT_ID=$(sed -n "${SLURM_ARRAY_TASK_ID}p" $SUBJECT_LIST | awk '{print $1}')
 echo "SUBJECT ID: $SUBJECT_ID"
@@ -20,8 +20,8 @@ echo "SUBJECT ID: $SUBJECT_ID"
 SESSION_ID=$(sed -n "${SLURM_ARRAY_TASK_ID}p" $SUBJECT_LIST | awk '{print $2}')
 echo "SESSION ID: $SESSION_ID"
 
-FREEWATER_DIR=/home/karlwenn/scratch/PPMI_micapipe_freewater_results
-MICAPIPE_OUTPUT_DIR=/home/karlwenn/scratch/ppmi_micapipe_outputs
+FREEWATER_DIR=/home/karlwenn/scratch/PPMI_micapipe_freewater_results_v2
+MICAPIPE_OUTPUT_DIR=/home/karlwenn/scratch/ppmi_micapipe_outputs_v2
 RESULTS_DIR=/home/karlwenn/scratch/ppmi_micapipe_registered_freewater_fonov
 template_mask=../data/atlases/SN_ROI_symmetric_three_subdivisions.nii.gz
 

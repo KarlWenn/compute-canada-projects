@@ -34,5 +34,5 @@ tmp_dir=/home/karlwenn/scratch/micapipe
 
 dwi_main=("$bids"/"${SUBJECT_ID}"/"${SESSION_ID}"/dwi/"${SUBJECT_ID}"_"${SESSION_ID}"*_run-01_dwi.nii.gz)
 
-${MICAPIPE_FUNCTIONS_PATH}/01_proc-structural.sh $bids $SUBJECT_ID $output_dir $SESSION_ID TRUE $THREADS /home/karlwenn/scratch/micapipe $t1w
-${MICAPIPE_FUNCTIONS_PATH}/02_proc-dwi.sh $bids $SUBJECT_ID $output_dir $SESSION_ID TRUE $THREADS $tmp_dir $dwi_main FALSE
+${MICAPIPE_FUNCTIONS_PATH}/01_proc-structural.sh $bids $SUBJECT_ID $output_dir $SESSION_ID FALSE $THREADS /home/karlwenn/scratch/micapipe $t1w
+${MICAPIPE_FUNCTIONS_PATH}/02_proc-dwi.sh $bids $SUBJECT_ID $output_dir $SESSION_ID FALSE $THREADS $tmp_dir $dwi_main FALSE
